@@ -1,0 +1,43 @@
+{
+  "name": "portfolio",
+  "version": "0.0.0",
+  "author": {
+    "name": "Himanshu Sharma",
+    "email": "himanshu.sh1220@gmail.com",
+    "url": "https://github.com/sh-himanshu"
+  },
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md,scss,css}\"",
+    "prepare": "husky install",
+    "cm": "cz",
+    "web:serve": "turbo run dev --scope=web"
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.4",
+    "commitlint": "^16.2.1",
+    "commitlint-config-gitmoji": "^2.2.5",
+    "cz-customizable": "^6.3.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=8.0.0",
+    "node": ">=16.0.0"
+  },
+  "packageManager": "yarn@1.22.17",
+  "config": {
+    "commitizen": {
+      "path": "cz-customizable"
+    }
+  }
+}

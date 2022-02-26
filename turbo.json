@@ -1,0 +1,19 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "format": {
+      "dependsOn": ["^lint"],
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    }
+  }
+}

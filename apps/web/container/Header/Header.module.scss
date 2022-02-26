@@ -1,0 +1,7 @@
+.container {
+  @apply bg-orange-400;
+
+  &:hover {
+    @apply bg-yellow-100;
+  }
+}

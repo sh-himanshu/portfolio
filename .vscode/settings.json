@@ -1,0 +1,29 @@
+{
+  "css.validate": false,
+  "scss.validate": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.unicodeHighlight.allowedCharacters": {
+    "️": true
+  },
+  "editor.formatOnSave": true,
+  "cSpell.words": [
+    "commitlint",
+    "gitmoji",
+    "himanshu",
+    "nextjs",
+    "Sharma",
+    "tailwindcss"
+  ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true
+  }
+}

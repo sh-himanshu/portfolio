@@ -1,0 +1,17 @@
+# Add files here to ignore them from prettier formatting
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+/dist
