@@ -27,6 +27,7 @@
     "commitlint-config-gitmoji": "^2.2.5",
     "cz-customizable": "^6.3.0",
     "husky": "^7.0.4",
+    "lint-staged": ">=10",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
@@ -39,5 +40,8 @@
     "commitizen": {
       "path": "cz-customizable"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,md,scss,css}": "prettier --write"
   }
 }
