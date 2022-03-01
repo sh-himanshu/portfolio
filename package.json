@@ -19,7 +19,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md,scss,css}\"",
     "prepare": "husky install",
     "cm": "cz",
-    "web:serve": "turbo run dev --scope=web"
+    "frontend:serve": "turbo run dev --scope=web",
+    "backend:serve": "turbo run start --scope=server"
   },
   "devDependencies": {
     "commitizen": "^4.2.4",
