@@ -5,6 +5,7 @@
     "austenc.tailwind-docs",
     "dbaeumer.vscode-eslint",
     "streetsidesoftware.code-spell-checker",
-    "clinyong.vscode-css-modules"
+    "clinyong.vscode-css-modules",
+    "wix.glean"
   ]
 }
