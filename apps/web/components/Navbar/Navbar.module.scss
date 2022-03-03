@@ -1,6 +1,6 @@
 .navbar {
-  @apply sticky top-0 flex items-center justify-between border border-none bg-white/50
-    p-2 shadow-sm backdrop-blur-sm sm:justify-start;
+  @apply sticky top-0 flex w-full items-center justify-between   border-none
+    bg-white/50 p-2 shadow-sm  sm:justify-start;
 }
 
 .image_wrapper {
@@ -45,12 +45,12 @@
 }
 
 .backdrop {
-  @apply fixed inset-0 flex h-screen w-screen items-start justify-end bg-black/40
+  @apply fixed inset-0 flex h-screen w-full items-start justify-end bg-black/40
     backdrop-blur;
 }
 
 .popup {
-  @apply relative m-5 flex min-w-[10rem]  flex-col space-y-1 rounded-md
+  @apply relative mt-10 mr-6 flex min-w-[10rem]  flex-col space-y-1 rounded-md
   bg-slate-100 p-2 pt-4 tracking-wider shadow-xl transition-opacity delay-200;
 
   & > svg {

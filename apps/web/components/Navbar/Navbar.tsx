@@ -6,6 +6,11 @@ import { MdMoreVert, MdClose } from 'react-icons/md';
 import { useState } from 'react';
 import cn from 'classnames';
 
+interface NavItemsProps {
+  show: boolean;
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const Logo = () => {
   return (
     <div className={styles.image_wrapper}>
@@ -14,8 +19,7 @@ const Logo = () => {
   );
 };
 
-const NavItems = () => {
-  const [show, setShow] = useState(false);
+const NavItems = ({ show, setShow }: NavItemsProps) => {
   return (
     <>
       <div className={styles.navlink_container}>
@@ -42,10 +46,15 @@ const NavItems = () => {
 };
 
 const Navbar = () => {
+  const [show, setShow] = useState(false);
   return (
-    <div className={styles.navbar}>
+    <div
+      className={cn(styles.navbar, {
+        'backdrop-blur-sm  backdrop-hue-rotate-60': !show,
+      })}
+    >
       <Logo />
-      <NavItems />
+      <NavItems show={show} setShow={setShow} />
     </div>
   );
 };
