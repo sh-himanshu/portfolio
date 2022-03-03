@@ -30,7 +30,7 @@ const NavItems = () => {
         className={cn(styles.backdrop, { [styles.invisible]: !show })}
         onClick={() => setShow(false)}
       >
-        <div className={cn(styles.popup)}>
+        <div className={cn(styles.popup, { 'opacity-0': !show })}>
           <MdClose onClick={() => setShow(false)} />
           {navItems.map((item, index) => (
             <div key={`nav_item_sm-${index}`}>{item}</div>
