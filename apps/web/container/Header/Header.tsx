@@ -1,7 +1,7 @@
 import styles from './Header.module.scss';
 
 const Header = () => {
-  return <div className={styles.container}>Header</div>;
+  return <div className="h-screen bg-orange-100">Header</div>;
 };
 
 export default Header;

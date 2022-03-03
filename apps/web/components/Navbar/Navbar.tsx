@@ -35,7 +35,6 @@ const NavItems = () => {
           {navItems.map((item, index) => (
             <div key={`nav_item_sm-${index}`}>{item}</div>
           ))}
-          <hr />
         </div>
       </div>
     </>
