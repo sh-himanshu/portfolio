@@ -2,10 +2,10 @@
   "recommendations": [
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
-    "austenc.tailwind-docs",
     "dbaeumer.vscode-eslint",
     "streetsidesoftware.code-spell-checker",
     "clinyong.vscode-css-modules",
-    "wix.glean"
+    "wix.glean",
+    "csstools.postcss"
   ]
 }

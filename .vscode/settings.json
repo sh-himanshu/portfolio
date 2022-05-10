@@ -8,17 +8,11 @@
   "editor.unicodeHighlight.allowedCharacters": {
     "️": true
   },
+  "editor.minimap.enabled": false,
   "editor.formatOnSave": true,
-  "cSpell.words": [
-    "commitlint",
-    "gitmoji",
-    "himanshu",
-    "hotspot",
-    "navlink",
-    "nextjs",
-    "Sharma",
-    "tailwindcss"
-  ],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -27,5 +21,14 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": true
-  }
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "cSpell.words": ["linebreak", "Mantine", "nextjs", "strapi"]
 }

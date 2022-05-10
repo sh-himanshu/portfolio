@@ -15,33 +15,27 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "frontend:serve": "turbo run dev --scope=frontend",
+    "backend:serve": "turbo run start --scope=backend",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md,scss,css}\"",
     "prepare": "husky install",
-    "cm": "cz",
-    "frontend:serve": "turbo run dev --scope=web",
-    "backend:serve": "turbo run start --scope=server"
+    "commit": "cz",
+    "clean": "rm -rf node_modules && yarn"
   },
   "devDependencies": {
-    "commitizen": "^4.2.4",
-    "commitlint": "^16.2.1",
+    "commitlint": "^16.2.4",
     "commitlint-config-gitmoji": "^2.2.5",
-    "cz-customizable": "^6.3.0",
-    "husky": "^7.0.4",
+    "husky": ">=6",
     "lint-staged": ">=10",
-    "prettier": "^2.5.1",
+    "prettier": "latest",
     "turbo": "latest"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "node": ">=12.x.x <=16.x.x",
+    "npm": ">=6.0.0"
   },
-  "packageManager": "yarn@1.22.17",
-  "config": {
-    "commitizen": {
-      "path": "cz-customizable"
-    }
-  },
+  "packageManager": "yarn@1.22.15",
   "lint-staged": {
     "*.{ts,tsx,md,scss,css}": "prettier --write"
   }

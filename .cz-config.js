@@ -35,7 +35,12 @@ module.exports = {
     },
   ],
 
-  scopes: [{ name: 'web' }, { name: 'server' }, { name: 'root' }, { name: 'packages' }],
+  scopes: [
+    { name: 'frontend' },
+    { name: 'backend' },
+    { name: 'root' },
+    { name: 'packages' },
+  ],
 
   allowBreakingChanges: ['feat', 'fix'],
 };
