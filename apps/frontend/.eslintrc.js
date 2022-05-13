@@ -6,17 +6,17 @@ module.exports = {
     'plugin:storybook/recommended',
   ],
   plugins: ['testing-library', 'jest'],
+
   overrides: [
     {
       files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
       extends: ['plugin:testing-library/react'],
-      parserOptions: {
-        project: 'tsconfig.json',
-        tsconfigRootDir: __dirname,
-        sourceType: 'module',
-      },
       rules: {
         'react/react-in-jsx-scope': 'off',
+      },
+      parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
       },
     },
   ],
