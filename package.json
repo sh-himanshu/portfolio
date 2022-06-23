@@ -16,7 +16,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "frontend:serve": "turbo run dev --scope=frontend",
-    "backend:serve": "turbo run start --scope=backend",
+    "backend:serve": "turbo run develop --scope=backend",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md,scss,css}\"",
     "prepare": "husky install",

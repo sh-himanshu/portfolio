@@ -13,6 +13,7 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
+  "editor.wordWrap": "on",
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -30,5 +31,15 @@
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "cSpell.words": ["linebreak", "Mantine", "nextjs", "strapi"]
+  "cSpell.words": [
+    "commitlint",
+    "gitmoji",
+    "Himanshu",
+    "linebreak",
+    "macbook",
+    "Mantine",
+    "nextjs",
+    "Sharma",
+    "strapi"
+  ]
 }

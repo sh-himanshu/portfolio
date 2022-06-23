@@ -6,6 +6,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        greycliff: ['Greycliff CF', ...defaultTheme.fontFamily.sans],
+        logo: ['Great Vibes', 'cursive'],
       },
     },
   },

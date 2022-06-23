@@ -8,7 +8,9 @@ export function Welcome() {
     <>
       <Title
         className={classes.title}
-        sx={{ fontFamily: "'Inter', sans-serif" }}
+        sx={(theme) => {
+          return { fontFamily: theme.fontFamily };
+        }}
         align="center"
         mt={100}
       >
