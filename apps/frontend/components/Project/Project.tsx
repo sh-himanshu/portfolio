@@ -1,19 +1,21 @@
-import { Button, Text, Title } from '@mantine/core';
+import { Button, Title } from '@mantine/core';
+import ReactMarkdown from 'react-markdown';
 import Laptop, { LaptopProps } from './Laptop';
+interface ProjectProps extends LaptopProps {
+  title: string;
+  description: string;
+  weblink: string;
+}
 
-interface ProjectProps extends LaptopProps {}
-
-const Project = ({ src }: ProjectProps) => {
+const Project = ({ src, title, description, weblink }: ProjectProps) => {
   return (
     <div className="xs:items-start flex flex-col items-center justify-center md:flex-row">
       <Laptop src={src} />
       <div className="max-w-sm space-y-4 text-justify">
-        <Title order={1}>Hello World</Title>
-        <Text size="md">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem consequatur dolor,
-          laborum obcaecati accusamus autem molestiae? Alias non, corporis dolorum error accusamus
-          vero repudiandae modi, rem explicabo repellendus reprehenderit eos.
-        </Text>
+        <Title order={1}>{title}</Title>
+        <article className="prose text-sm text-blue-400">
+          <ReactMarkdown children={description} />
+        </article>
         <Button variant="outline" color="grape">
           View
         </Button>

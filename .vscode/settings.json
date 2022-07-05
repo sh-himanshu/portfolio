@@ -41,5 +41,8 @@
     "nextjs",
     "Sharma",
     "strapi"
-  ]
+  ],
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }

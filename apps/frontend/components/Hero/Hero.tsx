@@ -1,4 +1,12 @@
 import { Container, createStyles, Text, Title } from '@mantine/core';
+import cn from 'classnames';
+import Image from 'next/image';
+import { HiOutlineDownload } from 'react-icons/hi';
+import Tilt from 'react-parallax-tilt';
+import Typewriter from 'typewriter-effect';
+import type { MiscData } from '../../pages';
+
+import styles from './Hero.module.css';
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -6,8 +14,8 @@ const useStyles = createStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundImage:
-      'linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%), url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80)',
-    paddingTop: theme.spacing.xl * 3,
+      'linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, rgb(26 27 30)  70%), url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80)',
+    paddingTop: theme.spacing.xl * 7,
     paddingBottom: theme.spacing.xl * 3,
   },
 
@@ -41,7 +49,7 @@ const useStyles = createStyles((theme) => ({
     fontFamily: `${theme.fontFamily}`,
     fontWeight: 900,
     lineHeight: 1.05,
-    maxWidth: 500,
+    maxWidth: 600,
     fontSize: 48,
 
     [theme.fn.smallerThan('md')]: {
@@ -73,38 +81,63 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const Hero = () => {
+interface HeroProps {
+  data?: MiscData;
+}
+
+const Hero = ({ data }: HeroProps) => {
+  // const { data, isLoading } = useQuery('miscData', getData, { initialData });
   const { classes } = useStyles();
+
   return (
     <div className={classes.root}>
       <Container size="lg">
         <div className={classes.inner}>
           <div className={classes.content}>
             <Title className={classes.title}>
-              A{' '}
+              Hi, I'm{' '}
               <Text
                 component="span"
                 inherit
                 variant="gradient"
                 gradient={{ from: 'pink', to: 'yellow' }}
               >
-                fully featured
-              </Text>{' '}
-              React components library
+                Himanshu Sharma
+              </Text>
+              <div className="mt-8 text-2xl">
+                <Typewriter
+                  options={{
+                    strings: ['Software Engineer.', 'Web Developer.'],
+                    autoStart: true,
+                    loop: true,
+                  }}
+                />
+              </div>
             </Title>
 
             <Text className={classes.description} mt={30}>
-              Build fully functional accessible web applications with ease - Mantine includes more
-              than 100 customizable components and hooks to cover you in any situation
+              {data?.data.attributes.about}
             </Text>
-            <button className="z-50  mt-10 mr-8 rounded-md bg-gradient-to-r py-4 px-12 font-greycliff text-xl font-bold text-gray-200 hover:shadow-lg hover:ring-2">
-              Download CV
-            </button>
-
-            <button className="mt-10 rounded-md bg-gradient-to-r from-pink-500 to-yellow-500 py-4 px-12 font-greycliff text-xl font-bold text-gray-200 hover:from-pink-600">
-              Projects
-            </button>
+            <a
+              className={cn(styles.btn, 'mt-10')}
+              download
+              href={data?.data.attributes.resume}
+              target="_blank"
+            >
+              <span className={styles['text-container']}>
+                <HiOutlineDownload className="text-2xl" />
+                <span className={styles.text}>RESUME</span>
+              </span>
+            </a>
           </div>
+          <Tilt tiltReverse={true} className=" p-3">
+            <Image
+              className={cn(styles['picture'], 'pointer-events-none')}
+              src="/me-crop.png"
+              height={466}
+              width={350}
+            />
+          </Tilt>
         </div>
       </Container>
     </div>

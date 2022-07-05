@@ -1,14 +1,13 @@
 import { Burger, Container, createStyles, Group, Header, Paper, Transition } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
-import MantineLogo from './MantineLogo';
 
-const HEADER_HEIGHT = 60;
+const HEADER_HEIGHT = 80;
 
 const useStyles = createStyles((theme) => ({
   root: {
-    position: 'relative',
+    position: 'fixed',
     zIndex: 1,
   },
 
@@ -105,7 +104,7 @@ const HeaderResponsive = ({ links }: HeaderResponsiveProps) => {
   return (
     <Header height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
-        <MantineLogo />
+        <div className="font-stylish text-3xl font-bold ">Himanshu Sharma</div>
         <Group spacing={5} className={classes.links}>
           {items}
           <div className="ml-4">
