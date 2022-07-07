@@ -208,8 +208,8 @@ const getProjects = async () => {
 };
 
 export const getServerSideProps = async () => {
-  const projects = await getProjects();
-  const miscData = await getData();
+  const projects = (await getProjects()) || null;
+  const miscData = (await getData()) || null;
 
   return {
     props: { projects, miscData },

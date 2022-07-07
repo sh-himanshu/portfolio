@@ -1,5 +1,5 @@
 import { Burger, Container, createStyles, Group, Header, Paper, Transition } from '@mantine/core';
-import { useBooleanToggle } from '@mantine/hooks';
+import { useBooleanToggle, useWindowScroll } from '@mantine/hooks';
 import { useState } from 'react';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 
@@ -85,16 +85,25 @@ const HeaderResponsive = ({ links }: HeaderResponsiveProps) => {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
+  const [_, scrollTo] = useWindowScroll();
 
   const items = links.map((link) => (
     <a
       key={link.label}
+      data-id={link.label}
       href={link.link}
       className={cx(classes.link, { [classes.linkActive]: active === link.link })}
       onClick={(event) => {
         event.preventDefault();
         setActive(link.link);
         toggleOpened(false);
+        const elementId = (event.target as HTMLAnchorElement).dataset['id']?.toLowerCase();
+        if (elementId === 'home') return scrollTo({ y: 0 });
+        if (elementId)
+          (document.getElementById(`scroll-to-${elementId}`) as HTMLElement)?.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'end',
+          });
       }}
     >
       {link.label}

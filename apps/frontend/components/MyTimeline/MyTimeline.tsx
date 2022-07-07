@@ -1,72 +1,40 @@
-import { Avatar, Text, ThemeIcon, Timeline } from '@mantine/core';
-import { FiCalendar, FiSun } from 'react-icons/fi';
-
-const TimeLineItem = () => (
-  <Timeline.Item
-    title="May 2020"
-    bullet={
-      <ThemeIcon size={30} variant="gradient" gradient={{ from: 'lime', to: 'cyan' }} radius="xl">
-        <FiCalendar size={18} />
-      </ThemeIcon>
-    }
-  >
-    <Text color="dimmed" size="sm">
-      Stared Learning HTML. CSS, JS and used those skills to make various small projects
-    </Text>
-  </Timeline.Item>
-);
+import { SimpleGrid } from '@mantine/core';
+import { motion } from 'framer-motion';
+import ToolTip from './ToolTip';
 
 const MyTimeline = () => {
-  return (
-    <div style={{ maxWidth: 320, margin: 'auto' }}>
-      <Timeline>
-        {/* If you do not pass bullet prop, default bullet will be rendered */}
-        <Timeline.Item title="Default bullet" bulletSize={24}>
-          <Text color="dimmed" size="sm">
-            Default bullet without anything
-          </Text>
-        </Timeline.Item>
-        <TimeLineItem />
-        <Timeline.Item
-          title="May 2020"
-          bullet={
-            <ThemeIcon
-              size={30}
-              variant="gradient"
-              gradient={{ from: 'lime', to: 'cyan' }}
-              radius="xl"
-            >
-              <FiCalendar size={18} />
-            </ThemeIcon>
-          }
-        >
-          <Text color="dimmed" size="sm">
-            Stared Learning HTML. CSS, JS and used those skills to make various small projects
-          </Text>
-        </Timeline.Item>
-        {/* You can use any react node as bullet, e.g. Avatar, ThemeIcon or any svg icon */}
-        <Timeline.Item
-          title="Avatar"
-          bulletSize={24}
-          bullet={
-            <Avatar
-              size={22}
-              radius="xl"
-              src="https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4"
-            />
-          }
-        >
-          <Text color="dimmed" size="sm">
-            Timeline bullet as avatar image
-          </Text>
-        </Timeline.Item>
+  const skills = {
+    css3: '205, 79%',
+    tailwindcss: '189, 94%',
+    typescript: '211, 60%',
+    nodedotjs: '120, 50%',
+    javascript: '53, 93%',
+    python: '207, 51%',
+    html5: '13, 77%',
+    openjdk: '0, 0%',
+    react: '193, 95%',
+    nextdotjs: '0, 0%',
+    figma: '14, 89%',
+    sass: '330, 50%',
+    redux: '263, 46%',
+    git: '9, 86%',
+  };
 
-        <Timeline.Item title="Icon" bulletSize={24} bullet={<FiSun size={14} />}>
-          <Text color="dimmed" size="sm">
-            Timeline bullet as icon
-          </Text>
-        </Timeline.Item>
-      </Timeline>
+  return (
+    <div id="scroll-to-skills" className="flex">
+      <motion.div
+        className="flex-1"
+        initial={{ opacity: 0, translateY: 100 }}
+        whileInView={{ opacity: 1, translateY: 0 }}
+        transition={{ duration: 1.5 }}
+      >
+        <SimpleGrid cols={4} className="mx-20 w-full">
+          {Object.entries(skills).map(([key, value], index) => (
+            <ToolTip key={`skill-${index}`} color={value} text={key} />
+          ))}
+        </SimpleGrid>
+      </motion.div>
+      <div className="flex-1"></div>
     </div>
   );
 };
