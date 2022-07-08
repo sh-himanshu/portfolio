@@ -9,6 +9,12 @@
     },
     "dev": {
       "cache": false
+    },
+    "develop": {
+      "cache": false
+    },
+    "start": {
+      "cache": false
     }
   }
 }

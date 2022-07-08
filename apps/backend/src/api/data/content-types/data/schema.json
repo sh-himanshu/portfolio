@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "datas",
+  "info": {
+    "singularName": "data",
+    "pluralName": "datas",
+    "displayName": "data"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "resume": {
+      "type": "string"
+    },
+    "about": {
+      "type": "text"
+    }
+  }
+}

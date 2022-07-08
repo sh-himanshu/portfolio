@@ -1,0 +1,24 @@
+.device-laptop {
+  position: relative;
+}
+
+.device-laptop img.screen {
+  position: absolute;
+  top: 0.5%;
+  left: 14.5%;
+  width: 70.5%;
+  height: 87%;
+  border-radius: 4.5% 4.5% 0 0;
+}
+
+.device-laptop img {
+  object-fit: cover;
+  overflow: hidden;
+  border-style: none;
+  vertical-align: middle;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
