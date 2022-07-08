@@ -144,8 +144,6 @@ const HomePage: NextPage<HomePageProps> = ({ projects: initialData, miscData }) 
     ),
   };
 
-  console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-
   const { data, isLoading } = useQuery('projects', getProjects, { initialData });
   const { data: miscQueryData } = useQuery('miscData', getData, { initialData: miscData });
   return (

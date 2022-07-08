@@ -1,5 +1,6 @@
 import { Burger, Container, createStyles, Group, Header, Paper, Transition } from '@mantine/core';
 import { useBooleanToggle, useWindowScroll } from '@mantine/hooks';
+import cn from 'classnames';
 import { useState } from 'react';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 
@@ -70,8 +71,8 @@ const useStyles = createStyles((theme) => ({
     '&, &:hover': {
       backgroundColor:
         theme.colorScheme === 'dark'
-          ? theme.fn.rgba(theme.colors[theme.primaryColor][9], 0.25)
-          : theme.colors[theme.primaryColor][0],
+          ? theme.fn.rgba(theme.colors['grape'][9], 0.25)
+          : theme.colors['grape'][0],
       color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7],
     },
   },
@@ -111,9 +112,14 @@ const HeaderResponsive = ({ links }: HeaderResponsiveProps) => {
   ));
 
   return (
-    <Header height={HEADER_HEIGHT} className={classes.root}>
+    <Header
+      height={HEADER_HEIGHT}
+      className={cn(classes.root, ' bg-white/80 backdrop-blur-md dark:bg-black/80')}
+    >
       <Container className={classes.header}>
-        <div className="font-stylish text-3xl font-bold ">Himanshu Sharma</div>
+        <div className="w-full text-center font-stylish  text-xl font-bold md:w-fit md:text-3xl">
+          Himanshu Sharma
+        </div>
         <Group spacing={5} className={classes.links}>
           {items}
           <div className="ml-4">
@@ -130,7 +136,11 @@ const HeaderResponsive = ({ links }: HeaderResponsiveProps) => {
 
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
-            <Paper className={classes.dropdown} withBorder style={styles}>
+            <Paper
+              className={cn(classes.dropdown, 'bg-white/90 dark:bg-black/90')}
+              withBorder
+              style={styles}
+            >
               {items}
             </Paper>
           )}
