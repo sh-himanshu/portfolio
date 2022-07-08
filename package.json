@@ -13,6 +13,8 @@
     "packages/*"
   ],
   "scripts": {
+    "heroku-start": "turbo run start --scope=backend",
+    "heroku-postbuild": "turbo run build --scope=backend",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "frontend:serve": "turbo run dev --scope=frontend",
