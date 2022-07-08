@@ -13,7 +13,7 @@
     "packages/*"
   ],
   "scripts": {
-    "heroku-start": "turbo run start --scope=backend",
+    "heroku-start": "yarn workspace backend start",
     "heroku-postbuild": "turbo run build --scope=backend",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
