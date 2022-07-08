@@ -144,6 +144,8 @@ const HomePage: NextPage<HomePageProps> = ({ projects: initialData, miscData }) 
     ),
   };
 
+  console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+
   const { data, isLoading } = useQuery('projects', getProjects, { initialData });
   const { data: miscQueryData } = useQuery('miscData', getData, { initialData: miscData });
   return (
@@ -158,7 +160,7 @@ const HomePage: NextPage<HomePageProps> = ({ projects: initialData, miscData }) 
               {data.data.map((project, index) => (
                 <Project
                   key={`project-${index}`}
-                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${project.attributes.Preview.data[0].attributes.formats.medium.url}`}
+                  src={project.attributes.Preview.data[0].attributes.formats.medium.url}
                   title={project.attributes.Title}
                   description={project.attributes.Description}
                   weblink={project.attributes.Weblink}
