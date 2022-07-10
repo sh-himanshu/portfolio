@@ -35,9 +35,7 @@ const Hero = ({ data }: HeroProps) => {
                 <span className="mr-2">Hello</span>
                 <img src="/wave.gif" className="mb-1 h-8 w-8 md:h-9 md:w-9 lg:h-11 lg:w-11" />
                 <span className="mr-3">, I'm</span>
-                <span className="bg-gradient-to-r from-violet-500 to-teal-500 bg-clip-text font-sans uppercase tracking-tighter  text-transparent">
-                  Himanshu
-                </span>
+                <span className={styles['text-gradient']}>Himanshu</span>
               </div>
               <div className="my-4 text-2xl md:my-8">
                 <Typewriter
