@@ -1,4 +1,5 @@
-import { Box, Image, Popover, Text } from '@mantine/core';
+import { Box, Popover, Text } from '@mantine/core';
+import Image from 'next/image';
 import { useState } from 'react';
 
 interface ToolTipProps {
@@ -11,6 +12,7 @@ const ToolTip = ({ text, color }: ToolTipProps) => {
   const getIconUrl = (iconName: string) => `https://simpleicons.org/icons/${iconName}.svg`;
   return (
     <Popover
+      className="flex items-center justify-center "
       opened={opened}
       onClose={() => setOpened(false)}
       position="bottom"
@@ -19,24 +21,28 @@ const ToolTip = ({ text, color }: ToolTipProps) => {
       trapFocus={false}
       closeOnEscape={false}
       transition="pop-top-left"
-      //   width={100}
-      styles={{ body: { pointerEvents: 'none' } }}
       target={
         <Box
           onMouseEnter={() => setOpened(true)}
           onMouseLeave={() => setOpened(false)}
           sx={(theme) => ({
             backgroundColor: `hsl(${color}, ${theme.colorScheme === 'dark' ? '50' : '80'}%)`,
+            ':hover': {
+              backgroundColor: `hsl(${color}, ${theme.colorScheme !== 'dark' ? '50' : '30'}%)`,
+            },
           })}
-          className="m-2 flex w-fit rounded-full p-4"
+          className="flex w-fit rounded-full p-3 hover:ring-4 hover:ring-blue-800 hover:dark:ring-blue-500 md:p-4"
         >
-          <Image
-            src={getIconUrl(text)}
-            alt={text}
-            height={40}
-            width={40}
-            className="pointer-events-none"
-          />
+          <div className="h-7 w-7 md:h-9 md:w-9">
+            <Image
+              layout="responsive"
+              src={getIconUrl(text)}
+              alt={text}
+              height={40}
+              width={40}
+              className="pointer-events-none"
+            />
+          </div>
         </Box>
       }
     >

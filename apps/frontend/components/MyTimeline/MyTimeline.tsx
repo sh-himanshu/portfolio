@@ -1,7 +1,9 @@
-import { SimpleGrid } from '@mantine/core';
+import { Container, SimpleGrid } from '@mantine/core';
 import { motion } from 'framer-motion';
-import ToolTip from './ToolTip';
+import { FaTools } from 'react-icons/fa';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
+import ToolTip from './ToolTip';
 const MyTimeline = () => {
   const skills = {
     css3: '205, 79%',
@@ -18,24 +20,27 @@ const MyTimeline = () => {
     sass: '330, 50%',
     redux: '263, 46%',
     git: '9, 86%',
+    amazonaws: '213, 28%',
+    graphql: '319, 100%',
   };
 
   return (
-    <div id="scroll-to-skills" className="flex">
-      <motion.div
-        className="flex-1"
-        initial={{ opacity: 0, translateY: 100 }}
-        whileInView={{ opacity: 1, translateY: 0 }}
-        transition={{ duration: 1.5 }}
-      >
-        <SimpleGrid cols={4} className="mx-20 w-full">
-          {Object.entries(skills).map(([key, value], index) => (
-            <ToolTip key={`skill-${index}`} color={value} text={key} />
-          ))}
-        </SimpleGrid>
-      </motion.div>
-      <div className="flex-1"></div>
-    </div>
+    <Container size="lg" id="scroll-to-skills">
+      <SectionTitle icon={FaTools} text="Skills" />
+      <div className="flex items-center justify-center ">
+        <motion.div
+          initial={{ opacity: 0, translateY: 100 }}
+          whileInView={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 1.5 }}
+        >
+          <SimpleGrid cols={4} className="gap-4 sm:gap-8 lg:gap-12">
+            {Object.entries(skills).map(([key, value], index) => (
+              <ToolTip key={`skill-${index}`} color={value} text={key} />
+            ))}
+          </SimpleGrid>
+        </motion.div>
+      </div>
+    </Container>
   );
 };
 

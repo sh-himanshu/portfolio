@@ -9,8 +9,9 @@ module.exports = {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         greycliff: ['Greycliff CF', ...defaultTheme.fontFamily.sans],
         stylish: ['Great Vibes', 'cursive'],
+        title: ['DM Sans', ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [],
 };

@@ -9,7 +9,7 @@ const HEADER_HEIGHT = 80;
 const useStyles = createStyles((theme) => ({
   root: {
     position: 'fixed',
-    zIndex: 1,
+    zIndex: 100,
   },
 
   dropdown: {
