@@ -13,7 +13,6 @@
 
 .device-laptop img {
   object-fit: cover;
-  overflow: hidden;
   border-style: none;
   vertical-align: middle;
 }

@@ -1,14 +1,20 @@
+import { Container, Text } from '@mantine/core';
 import axios from 'axios';
-import cn from 'classnames';
+import Carousel from 'framer-motion-carousel';
+
 import { NextPage } from 'next';
-import { useState } from 'react';
+import {
+  BsFillCaretLeftFill as LeftArrowIcon,
+  BsFillCaretRightFill as RightArrowIcon,
+} from 'react-icons/bs';
 import { useQuery } from 'react-query';
-import Slider, { Settings } from 'react-slick';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css';
+
+// import Slider, { Settings } from 'react-slick';
+// import 'slick-carousel/slick/slick-theme.css';
+// import 'slick-carousel/slick/slick.css';
 import { Hero, Layout, MyTimeline, Project } from '../components/';
 
-interface ProjectsData {
+export interface ProjectsData {
   data: Datum2[];
   meta: Meta;
 }
@@ -104,48 +110,45 @@ interface HomePageProps {
   miscData?: MiscData;
 }
 
+interface ArrowProps {
+  left: boolean;
+  children: React.ReactNode;
+  onClick: () => void;
+}
+
+const baseArrowStyle: React.CSSProperties = {
+  position: 'absolute',
+  width: '50px',
+  height: '50px',
+  backgroundColor: 'rgba(0,0,0,0.5)',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  borderRadius: '50%',
+  color: '#fff',
+  fontSize: '20px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer',
+};
+
+const Arrow = ({ left = false, children, onClick }: ArrowProps) => (
+  <div
+    onClick={onClick}
+    style={{
+      ...baseArrowStyle,
+      left: left ? '20px' : 'initial',
+      right: !left ? '10px' : 'initial',
+    }}
+  >
+    {children}
+  </div>
+);
+
 const HomePage: NextPage<HomePageProps> = ({ projects: initialData, miscData }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const settings: Settings = {
-    arrows: true,
-    dots: true,
-    vertical: true,
-    verticalSwiping: true,
-    swipeToSlide: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 500,
-    autoplaySpeed: 6000,
-    cssEase: 'linear',
-    afterChange: (newSlide: number) => setCurrentSlide(newSlide),
-    // afterChange: (currentSlide: number, nextSlide: number) => {
-    //   console.log(currentSlide, nextSlide);
-    // },
-    appendDots: (dots: number) => (
-      <div className="py-4">
-        <ul className="m-0">{dots}</ul>
-      </div>
-    ),
-    customPaging: (i: number) => (
-      <div
-        className={cn(
-          'w-6 rounded-full text-center font-semibold leading-6 text-black decoration-teal-300',
-          {
-            'bg-teal-400': i === currentSlide,
-            'bg-gray-400': i !== currentSlide,
-          }
-        )}
-      >
-        {i + 1}
-      </div>
-    ),
-  };
-
   const { data, isLoading } = useQuery('projects', getProjects, { initialData });
   const { data: miscQueryData } = useQuery('miscData', getData, { initialData: miscData });
+
   return (
     <Layout>
       {isLoading || !data ? (
@@ -153,18 +156,40 @@ const HomePage: NextPage<HomePageProps> = ({ projects: initialData, miscData }) 
       ) : (
         <>
           <Hero data={miscQueryData} />
-          <div className="my-10 flex select-none flex-col space-y-10 rounded-xl bg-gray-900 py-8 md:space-y-0 lg:mx-40">
-            <Slider {...settings}>
-              {data.data.map((project, index) => (
-                <Project
-                  key={`project-${index}`}
-                  src={project.attributes.Preview.data[0].attributes.formats.medium.url}
-                  title={project.attributes.Title}
-                  description={project.attributes.Description}
-                  weblink={project.attributes.Weblink}
-                />
-              ))}
-            </Slider>
+          <div className="bg-purple-900/20">
+            <Container size="lg" className="flex h-screen items-center justify-center ">
+              <Text className="basis-1/3 font-greycliff text-5xl font-bold uppercase">
+                Projects
+              </Text>
+
+              <div className="h-[30rem] max-w-3xl basis-2/3">
+                <Carousel
+                  renderArrowLeft={({ handlePrev }) => (
+                    <Arrow left={true} onClick={handlePrev}>
+                      <LeftArrowIcon />
+                    </Arrow>
+                  )}
+                  renderArrowRight={({ handleNext }) => (
+                    <Arrow left={false} onClick={handleNext}>
+                      <RightArrowIcon />
+                    </Arrow>
+                  )}
+                  autoPlay={false}
+                  interval={1}
+                  loop={true}
+                >
+                  {data.data.map((project, index) => (
+                    <Project
+                      key={index}
+                      title={project.attributes.Title}
+                      description={project.attributes.Description}
+                      weblink={project.attributes.Weblink}
+                      src={project.attributes.Preview.data[0].attributes.formats.medium.url}
+                    />
+                  ))}
+                </Carousel>
+              </div>
+            </Container>
           </div>
           <MyTimeline />
         </>

@@ -1,6 +1,5 @@
 import { Affix, Transition, useMantineColorScheme } from '@mantine/core';
 import { useWindowScroll } from '@mantine/hooks';
-import React from 'react';
 import { HiOutlineArrowUp as ArrowUpIcon } from 'react-icons/hi';
 import Footer from '../Footer/Footer';
 import HeaderResponsive from '../HeaderResponsive/HeaderResponsive';

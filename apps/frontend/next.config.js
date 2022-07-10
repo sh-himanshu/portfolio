@@ -8,6 +8,6 @@ module.exports = withBundleAnalyzer({
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['simpleicons.org'],
+    domains: ['simpleicons.org', 'res.cloudinary.com'],
   },
 });
