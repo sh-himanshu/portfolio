@@ -9328,6 +9328,27 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+framer-motion-carousel@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/framer-motion-carousel/-/framer-motion-carousel-2.0.1.tgz#0df7c1a0a393cf788c8ad0b36a0ebae77bf44283"
+  integrity sha512-USoPnkFjw07ebS0IAU0HFfa/0xz1K3/GaU2lD3fW1iMBzGPO6V4TuTBo1GevZ3V7r5bD2Wk4wo4M0t3IFuBqqQ==
+  dependencies:
+    framer-motion "^6.3.11"
+
+framer-motion@^6.3.11:
+  version "6.4.3"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-6.4.3.tgz#1d60f352ccc2840b0302c35c0993d972da550d03"
+  integrity sha512-prcyOGFkGjwGEgbxObIWteVz1ihuWaDLdR03626cbA1GxTaPRpLb8ioJfWPmP5mwcWC7TlhMOjS5kBYnuiktFA==
+  dependencies:
+    "@motionone/dom" "^10.11.1"
+    framesync "6.0.1"
+    hey-listen "^1.0.8"
+    popmotion "11.0.3"
+    style-value-types "5.0.0"
+    tslib "^2.1.0"
+  optionalDependencies:
+    "@emotion/is-prop-valid" "^0.8.2"
+
 framer-motion@^6.4.2:
   version "6.4.2"
   resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-6.4.2.tgz#664a68a33633906cd2e6ec5ab6665753e46e0e19"
