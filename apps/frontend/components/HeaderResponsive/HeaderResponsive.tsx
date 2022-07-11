@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { useState } from 'react';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 
-const HEADER_HEIGHT = 80;
+const HEADER_HEIGHT = 60;
 
 const useStyles = createStyles((theme) => ({
   root: {
